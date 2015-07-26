@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/jsx">
+      var LikeButton = React.createClass({
+        getInitialState: function() {
+          return {liked: false}
+        },
+        handleClick: function() {
+          this.setState({liked: !this.state.liked})
+        },
+        render: function() {
+          var text = this.state.liked ? "like" : "do not like";
+          return (
+            <div>            
+            <h1>I {text} this.</h1>
+              <input type='button' value="Click to toogle" onClick={this.handleClick} />
+            </div>
+            )
+        }
+      })
+      React.render(
+        <LikeButton />,
+        document.getElementById('example')
+        );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/jsx">
+      var EchoInput = React.createClass({
+        getInitialState: function() {
+          return {value: "hello world"}
+        },
+        handleChanged: function(event) {
+          this.setState({value: event.target.value})
+        },
+        render: function() {
+          return (
+            <div>
+              <input type='text' value={this.state.value} onChange={this.handleChanged} />
+              <p>You just input following content:</p>
+              <p>{this.state.value}</p>
+            </div>
+            )
+        }
+      })
+      React.render(
+        <EchoInput />,
+        document.getElementById('example')
+        );
+    </script>
+  </body>
+</html>

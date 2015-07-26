@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/jsx">
+      var NoteList = React.createClass({
+        render: function() {
+          return (
+            <h1><ol>
+            {
+              this.props.children.map(function(child) {
+                return <li>{child}</li>
+              })
+            }
+            </ol></h1>
+            );
+        },
+      });
+      React.render(
+        <NoteList>
+          <span>LILY</span>
+          <span>JOEY</span>
+        </NoteList>,
+        document.getElementById('example')
+        );
+    </script>
+  </body>
+</html>

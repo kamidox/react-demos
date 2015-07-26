@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+    <script src="build/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/jsx">
+      var UserGist = React.createClass({
+        getInitialState: function() {
+          return {gists: []}
+        },
+        componentDidMount: function() {
+          $.get(this.props.source, function(result) {
+            if (this.isMounted()) {
+              this.setState({gists: result});
+            }
+          }.bind(this));
+        },
+        render: function() {
+          return (
+            <div>
+              <h2>source: {this.props.source}
+                <ol>
+                {
+                  this.state.gists.map(function(gist){
+                    return (
+                      <li key={gist.id}> <a href={gist.html_url}>{gist.html_url}</a></li>
+                    )
+                  })
+                }
+                </ol>
+              </h2>
+            </div>
+            )
+        }
+      });
+      React.render(
+        <UserGist source="https://api.github.com/users/octocat/gists" />,
+        document.getElementById('example')
+        );
+    </script>
+  </body>
+</html>

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="../build/react.js"></script>
-    <script src="../build/JSXTransformer.js"></script>
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
   </head>
   <body>
     <div id="example"></div>
     <script type="text/jsx">
-      var names = ['Alice', 'Emily', 'Kate'];
+      var names = ['Lily', 'Joey', 'Cherry'];
 
       React.render(
         <div>
         {
           names.map(function (name) {
-            return <div>Hello, {name}!</div>
+            return <h2>Hello, {name}!</h2>
           })
         }
         </div>,
         document.getElementById('example')
-      );
+        );
     </script>
   </body>
 </html>
