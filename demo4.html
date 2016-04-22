@@ -13,8 +13,17 @@
         }
       } );
 
+      var GreepMessage = React.createClass( {
+          render: function() {
+              return <h2>Hello, {this.props.name}</h2>
+          }
+      });
+
       React.render(
-        <HelloMessage name='JOEY'/>,
+          <div>
+            <HelloMessage name='JOEY'/>
+            <GreepMessage name='LILY'/>
+          </div>,
         document.getElementById('example')
         );
     </script>
