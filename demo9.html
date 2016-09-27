@@ -12,14 +12,15 @@
           return {opacity: 1.0}
         },
         componentDidMount: function() {
+          this.step = -0.05;
           this.timer = setInterval(function() {
             var opacity = this.state.opacity;
-            opacity -= 0.05;
-            if (opacity < 0.1) {
-              opacity = 1.0;
+            opacity += this.step;
+            if (opacity < 0.1 || opacity >= 1.0) {
+              this.step = -this.step;
             }
             this.setState({opacity: opacity});
-          }.bind(this), 100);
+          }.bind(this), 20);
         },
         render: function() {
           return (
