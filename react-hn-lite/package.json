@@ -54,7 +54,7 @@
     "author": "Ruan Yifeng",
     "license": "MIT",
     "config": {
-        "ghooks": {
+        "ghooks-disable": {
             "pre-commit": "npm run lint",
             "commit-msg": "npm run lint:msg"
         },
