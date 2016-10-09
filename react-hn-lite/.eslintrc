@@ -6,6 +6,8 @@
     jsx: true
   },
   "globals": {
+    document: false,
+    window: false
   },
   "plugins": [
   ],

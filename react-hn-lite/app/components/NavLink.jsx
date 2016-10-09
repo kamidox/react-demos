@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-export default class NavLink extends React.Component {
+export default React.createClass({
   render() {
     return (
       <Link activeClassName="active" {...this.props} />
     );
   }
-}
+});

@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default class Ask extends React.Component {
+export default React.createClass({
   render() {
     return (
       <div>Hacker News Ask</div>
     );
   }
-}
+});

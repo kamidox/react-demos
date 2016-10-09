@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default class Show extends React.Component {
+export default React.createClass({
   render() {
     return (
       <div>Hacker News Show</div>
     );
   }
-}
+});
