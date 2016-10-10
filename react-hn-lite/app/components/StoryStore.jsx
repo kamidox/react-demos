@@ -64,16 +64,14 @@ class StoryStore extends EventEmmiter {
   // start to load latest story ids from network
   fetchStory() {
     log.info(`fetch story ${this.type}`);
-    storyRef(this.type).then((res) => {
-      return res.json();
-    }).then((ids) => {
-      this.onStoryUpdated(ids);
-    });
+    storyRef(this.type)
+      .then(res => res.json())
+      .then(ids => this.onStoryUpdated(ids));
   }
 
   // stop to load
   stop() {
-    // TODO;
+    log.info(`${this.type}: stop`);
   }
 
   onStoryUpdated(ids) {
@@ -86,11 +84,9 @@ class StoryStore extends EventEmmiter {
   // fetch story from network by its id
   fetchItem(id) {
     log.info(`fetch item ${id}`);
-    itemRef(id).then((res) => {
-      return res.json();
-    }).then((item) => {
-      this.onItemUpdated(item);
-    });
+    itemRef(id)
+      .then(res => res.json())
+      .then(item => this.onItemUpdated(item));
   }
 
   onItemUpdated(item) {
